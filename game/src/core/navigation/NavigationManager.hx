@@ -4,7 +4,9 @@ class NavigationManager
 {
 	public var current(default, null):Null<INavigationInstance>;
 	public var interactionsDisabled(default, null):Bool;
+	public var groupManager:Null<NavigationGroupManager>;
 
+	@:allow(core.navigation.NavigationGroupManager)
 	private var instances:Map<INavigationInstance, NavigationNode>;
 
 	/**
@@ -62,15 +64,26 @@ class NavigationManager
 		link(instance2, instance1, direction.getReverse());
 	}
 
+	public function clearLinks()
+	{
+		for (inst => node in instances)
+		{
+			node.clearLinks();
+		}
+	}
+
 	/**
 		Move from the current selected instance in a given direction, if possible.
 	**/
-	public function move(direction:engine.Direction)
+	public function tryMove(direction:engine.Direction)
 	{
 		if (current == null || interactionsDisabled)
 			return false;
 
 		var node = instances.get(current);
+		if (node == null)
+			return false;
+
 		var linked = node.getLink(direction);
 
 		if (linked == null)
@@ -91,6 +104,12 @@ class NavigationManager
 		if (node == null)
 			return false;
 
+		if (groupManager != null)
+		{
+			trace('selecting instance in group manager;');
+			groupManager.setCurrentGroup(this);
+		}
+
 		changeCurrent(current, instance);
 		return true;
 	}
@@ -110,6 +129,11 @@ class NavigationManager
 		{
 			current = to;
 			to.focus();
+
+			if (groupManager != null)
+			{
+				groupManager.notifyFocused(this, to);
+			}
 		}
 
 		onCurrentChanged();

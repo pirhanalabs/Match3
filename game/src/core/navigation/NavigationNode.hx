@@ -28,6 +28,12 @@ class NavigationNode
 		return true;
 	}
 
+	public function clearLinks()
+	{
+		links.clear();
+		previous.clear();
+	}
+
 	/**
 		Returns the link (if any) in given direction.
 	**/
