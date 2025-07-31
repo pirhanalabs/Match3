@@ -1,0 +1,6 @@
+base.hxml
+-D windowSize=1280x720
+-D windowFixed=1
+-hl bin/client.hl
+-lib hldx
+-lib hlopenal

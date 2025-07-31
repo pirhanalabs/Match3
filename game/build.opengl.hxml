@@ -1,0 +1,11 @@
+base.hxml
+-D windowTitle=Dungeon OS
+# -D windowSize=1152x648
+-D windowSize=960x540
+# -D windowSize=1280x720
+# -D windowSize=800x560
+# -D windowSize=640x360
+# -D windowFixed=1
+-hl bin/client.hl 
+-lib hlsdl
+-lib hlopenal

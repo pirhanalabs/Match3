@@ -1,0 +1,19 @@
+--cmd haxelib --always git heaps https://github.com/deepnight/heaps.git
+# utilities
+--cmd haxelib --always git hscript https://github.com/HaxeFoundation/hscript.git
+--cmd haxelib --always install bits
+
+# aseprite
+--cmd haxelib --always install ase
+--cmd haxelib --always git heaps-aseprite https://github.com/deepnight/heaps-aseprite.git
+
+# heaps
+--cmd haxelib --always git hlsdl https://github.com/HaxeFoundation/hashlink.git master libs/sdl
+--cmd haxelib --always git hldx https://github.com/HaxeFoundation/hashlink.git master libs/directx
+
+# distribution
+--cmd haxelib --always install redistHelper
+--cmd haxelib --always install hxdist
+
+# pirhana
+--cmd haxelib --always git pirhana https://github.com/pirhanalabs/pirhana.git
