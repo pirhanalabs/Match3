@@ -126,9 +126,8 @@ class Boot extends engine.Application
 
 		// this.engine.backgroundColor = 0xffffff;
 
-		// cursor.setCursor(new h2d.Bitmap(hxd.Res.sprites.cursor_regular.toTile()));
-		// cursor.enable(true);
-		// cursor.setCursor(new h2d.Object());
+		cursor.setCursor(new h2d.Bitmap(hxd.Res.sprites.cursors.cursor_regular.toTile())); //
+		cursor.enable(true);
 
 		FontResources.Init();
 		Inputs.Init(inputs);
