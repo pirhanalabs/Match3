@@ -124,19 +124,11 @@ class Boot extends engine.Application
 	{
 		super.ready();
 
-		// this.engine.backgroundColor = 0xffffff;
-
 		cursor.setCursor(new h2d.Bitmap(hxd.Res.sprites.cursors.cursor_regular.toTile())); //
 		cursor.enable(true);
 
 		FontResources.Init();
 		Inputs.Init(inputs);
-
-		// pushScreen(new screens.BattleScreen());
-		// pushScreen(new screens.DungeonMapScreen());
-		// pushScreen(new screens.RPGScreen());
-		// pushScreen(new screens.TestScreen());
-		// pushScreen(new screens.TestScreen());
 
 		screenBackground = new h2d.Bitmap(h2d.Tile.fromColor(0x000000, 1, 1, 1));
 		screenBackground.scaleX = this.vw;
@@ -162,11 +154,6 @@ class Boot extends engine.Application
 		// extra call for shader
 		resizeShader();
 
-		// pushScreen(new screens.BattleScreen());
-		// pushScreen(new screens.DungeonMapScreen());
-		// pushScreen(new screens.RPGScreen());
-		// pushScreen(new screens.TestScreen());
-		// pushScreen(new example.ExampleScreen());
 		pushScreen(new match3.screens.GameScreen());
 	}
 
