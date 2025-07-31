@@ -1,23 +1,35 @@
 package match3.gameplay;
 
+import core.structs.Queue;
 import match3.data.EZone;
 
 class MatchContext
 {
 	var pp:Player;
-	var events:pirhana.utils.state.EventStateManager;
+	var messages:Queue<IMessage>;
 
-	public function new(pp:Player, events:pirhana.utils.state.EventStateManager)
+	/**
+		Context of the game. Each gameplay request should go through here.
+
+		created: 31/07/2025
+	**/
+	public function new(pp:Player, messages:Queue<IMessage>)
 	{
 		this.pp = pp;
-		this.events = events;
+		this.messages = messages;
 	}
 
+	/**
+		Adds score to the board.
+	**/
 	public function addScore(amount:Int)
 	{
-		trace('add score here');
+		messages.enqueue(new match3.messages.MSG_IncreaseScore(amount));
 	}
 
+	/**
+		filters a zone.
+	**/
 	public function filterZone(zone:EZone, f:Card->Bool)
 	{
 		return this.pp.getZone(zone).filter(f);

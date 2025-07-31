@@ -63,6 +63,7 @@ class Initializer
 
 			interp.variables.set('ECardTag', tags);
 			interp.variables.set('ECardZone', zones);
+			interp.variables.set('ERarity', rarities);
 
 			for (cardfile in cards)
 			{

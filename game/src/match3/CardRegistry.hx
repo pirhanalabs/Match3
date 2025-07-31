@@ -24,6 +24,7 @@ class CardRegistry
 	public static function register(data:match3.data.CardData)
 	{
 		all.push(data);
+		mapped.set(data.id, data);
 		addToFilter(filterRarity, data.rarity, data);
 	}
 
