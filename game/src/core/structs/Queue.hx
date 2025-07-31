@@ -15,6 +15,14 @@ class Queue<T>
 		vector = new haxe.ds.Vector(size);
 	}
 
+	public function clear()
+	{
+		vector = new haxe.ds.Vector(vector.length);
+		front = 0;
+		end = 0;
+		count = 0;
+	}
+
 	public function peek()
 	{
 		return vector.get(front);
