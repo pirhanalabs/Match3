@@ -82,7 +82,7 @@ class GameScreen extends engine.Screen
 			view.setCard(hand[i]);
 
 			view.x = app.vw2 + MathTools.layout(24, hand.length, i);
-			view.y = app.vh2 + app.vh2 * 0.5;
+			view.y = app.vh2 + app.vh2 * 0.5 - 40;
 			handCards.push(view);
 			navigation_hand.add(view);
 			root.add(view, 1);
@@ -95,7 +95,7 @@ class GameScreen extends engine.Screen
 			view.setCard(play[i]);
 
 			view.x = app.vw2 + MathTools.layout(24, play.length, i);
-			view.y = app.vh2;
+			view.y = app.vh2 - 40;
 			playCards.push(view);
 			navigation_play.add(view);
 			root.add(view, 1);

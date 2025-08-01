@@ -18,7 +18,6 @@ class CardView extends core.navigation.BasicNavigationInstance
 	override function onInteractiveClick(e:Event)
 	{
 		super.onInteractiveClick(e);
-		trace('clicked');
 	}
 
 	public function setCard(card:Card)

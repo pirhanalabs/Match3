@@ -106,7 +106,6 @@ class NavigationManager
 
 		if (groupManager != null)
 		{
-			trace('selecting instance in group manager;');
 			groupManager.setCurrentGroup(this);
 		}
 
