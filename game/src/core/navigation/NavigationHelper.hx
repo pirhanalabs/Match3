@@ -66,7 +66,7 @@ class NavigationHelper
 	 * Links two linear naviations to one another, creating a two-way link between each instance.
 	 * Each instance portals to the closest instance position on the other navigation.
 	 */
-	public static function linkLinears<T:INavigationInstance, K:INavigationInstance>(group:NavigationGroupManager, a:Array<T>, b:Array<K>,
+	public static function buildLinearNavs<T:INavigationInstance, K:INavigationInstance>(group:NavigationGroupManager, a:Array<T>, b:Array<K>,
 			dir:engine.Direction, atarget:NavigationManager, btarget:NavigationManager)
 	{
 		var lenA = a.length;
