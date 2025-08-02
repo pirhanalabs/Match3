@@ -61,4 +61,29 @@ class NavigationHelper
 			}
 		}
 	}
+
+	/**
+	 * Links two linear naviations to one another, creating a two-way link between each instance.
+	 * Each instance portals to the closest instance position on the other navigation.
+	 */
+	public static function linkLinears<T:INavigationInstance, K:INavigationInstance>(group:NavigationGroupManager, a:Array<T>, b:Array<K>,
+			dir:engine.Direction, atarget:NavigationManager, btarget:NavigationManager)
+	{
+		var lenA = a.length;
+		var lenB = b.length;
+
+		for (i in 0...lenA)
+		{
+			var closestB = b[Math.round(i * (lenB - 1) / Math.max(lenA - 1, 1))];
+			group.addPortalToNode(a[i], dir, atarget, closestB);
+		}
+
+		dir = dir.getReverse();
+
+		for (i in 0...lenB)
+		{
+			var closestA = a[Math.round(i * (lenA - 1) / Math.max(lenB - 1, 1))];
+			group.addPortalToNode(b[i], dir, btarget, closestA);
+		}
+	}
 }
